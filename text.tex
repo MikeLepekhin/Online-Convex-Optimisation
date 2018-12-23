@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{lipsum}
+\usepackage{titlesec}
+
+\titlespacing\section{0pt}{10pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\setlength{\droptitle}{-10em}   % This is your set screw
+
+\author{Михаил Лепехин и Роман Логинов, группа 694}
+\title{Online Convex Optimization (OCO)}
+
+\begin{document}
+  \maketitle
+
+\section*{Методы первого порядка}
+$ $
+
+В данном разделе мы рассмотрим базовые алгоритмы для Online Convex Optimization, которые достаточно неплохо применимы на практике.
+
+В целом данные методы похожи на соответствующие методы первого порядка для задач обычной выпуклой оптимизации. Но они принципиально отличаются целью применения. Ведь при помощи методов OCO мы стремимся минимизировать \textit{regret}:
+
+$$regret = \sum\limits_{t=1}^T f_t(x_t) - \min\limits_{x \in \mathcal{K}} \sum\limits_{t=1}^T f_t(x)$$
+
+\end{document}
