@@ -79,11 +79,11 @@ $ $
 
 Вычислим её градиент.
 
-$$\frac{\partial f_t}{\partial x}(x) = \frac{2}{2M}(<x, w_t>+M)\frac{w_t}{2M} = \frac{<x, w_t>+M}{4M^2}w_t$$
+$$\frac{\partial f_t}{\partial x}(x) = \frac{2}{2M}(<x, w_t>+M)\frac{w_t}{2M} = \frac{<x, w_t>+M}{2M^2}w_t$$
 
 Продифференцируем градиент по $x$ и получим гессиан.
 
-$$\frac{\partial^2 f_t}{\partial x^2}(x) = \frac{1}{4M^2}w_tw_t^T \succeq 0$$
+$$\frac{\partial^2 f_t}{\partial x^2}(x) = \frac{1}{2M^2}w_tw_t^T \succeq 0$$
 
 Положительная полуопределённость следует из того, что $\forall x \in \mathcal{X}: x^Tw_tw_t^Tx_t = (w_t^Tx_t)^Tw_t^Tx_t = <w_t^Tx_t, w_t^Tx_t> \geq 0$ - по свойствам скалярного произведения.
 
