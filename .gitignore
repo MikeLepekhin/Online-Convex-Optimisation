@@ -1,4 +1,6 @@
+*checkponts*
 *.gz
 *.out
 *.log
 *.aux
+*local*

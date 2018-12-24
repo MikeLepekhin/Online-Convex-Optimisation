@@ -283,6 +283,8 @@ s.t.\ & x \in \mathcal{K}
 В обозначениях из леммы выше, описанный выше алгоритм, запущенный с параметрами $\varepsilon = \frac{1}{\gamma^2 D^2}$ и шагом $\frac{1}{\gamma}$ при более чем 4х итерациях гарантирует:
 
 $$ regret_T \leqslant 5(\frac{1}{\alpha} + GD) n \log T $$
+
+Здесь $n$ - размерность матрицы $A$
 \end{theorem}
 	
 \begin{proof}
@@ -296,24 +298,38 @@ $$ regret_T \leqslant 5(\frac{1}{\alpha} + GD) n \log T $$
 
 Вспомним, как в нашем случае считались гессиан и градиент $f_t(x)$:
 
-$$ \nabla^2 f(x) = \frac{1}{4M^2} w_t w_t^\top $$
+$$ \nabla^2 f(x) = \frac{1}{2M^2} w_t w_t^\top $$
 
-$$ \nabla f(x) = \frac{(x, w_t) + M}{4M} w_t $$
+$$ \nabla f(x) = \left(\frac{(x, w_t) + M}{2M^2} - \frac{y_t}{2M}\right) w_t $$
 
-Теперь посмотрим на условие первой леммы этого раздела. Она говорит, что для подходящего $\alpha$ достаточно:
+Теперь посмотрим на условие первой леммы этого раздела. Рассмотрим 2 случая: $y_t = 0$ и $y_t = 1$. Она говорит, что для подходящего $\alpha$ достаточно:
 
-$$ \alpha \left(\frac{(x, w_t) + M}{4M}\right)^2 \leqslant \frac{1}{4M^2}$$
+При $y_t = 0:$
 
-$$ \alpha ((x, w_t) + M)^2 \leqslant 4 $$
+$$ \alpha \left(\frac{(x, w_t) + M}{2M^2}\right)^2 \leqslant \frac{1}{2M^2}$$
 
-$$ \alpha \leqslant \frac{4}{((x, w_t) + M)^2} $$
+$$ \alpha ((x, w_t) + M)^2 \leqslant 2M^2 $$
+
+$$ \alpha \leqslant \frac{2M^2}{((x, w_t) + M)^2} $$
 
 Используя рассуждения предыдущих разделов, по неравенству Коши-Буняковского имеем:
 
-$$ \alpha \leqslant \frac{4}{4M^2} = \frac{1}{M^2} $$
+$$ \alpha = \frac{1}{2} \leqslant \frac{2M^2}{((x, w_t) + M)^2} $$
 
-подходит. А это значит, что алгоритм можно писать, положив $\alpha = \frac{1}{M^2}$
+Поэтому можем использовать $\alpha = \frac{1}{2}$
 
-Что показывает, что наша функция экспоненциально вогнута.
+При $y_t = 1:$
+
+$$ \alpha \left(\frac{(x, w_t) + M}{2M^2} - \frac{1}{M}\right)^2 \leqslant \frac{1}{2M^2} $$
+
+$$ \alpha \left(\right)^2 \leqslant \frac{1}{2M^2} $$
+
+$$ \alpha (x, w)^2 \leqslant 2M^2 $$
+
+$$ \alpha \leqslant \frac{2M^2}{(x, w)^2}$$
+
+Аналогичным образом получаем, что можно использовать $\alpha \leqslant 2$.
+
+Что показывает, что наша функция экспоненциально вогнута с константой $\frac{1}{2}$
 
 \end{document}
