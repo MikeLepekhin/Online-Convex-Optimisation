@@ -125,7 +125,7 @@ $ $
 
 Это следует из следующей теоремы.
 
-\textbf{Теорема.} Online градиентный спуск с шагом, заданным по правилу $\alpha_t = \frac{D}{G\sqrt{t}}$, для любого $T \leq 1$ гарантирует:
+\textbf{Теорема.} Online градиентный спуск с шагом, заданным по правилу $\alpha_t = \frac{D}{G\sqrt{t}}$, для любого $T \geq 1$ гарантирует:
 
 $$regret = \sum\limits_{t=1}^T f_t(x_t) - \min\limits_{x\in \mathcal{K}} \sum\limits_{t=1}^T f_t(x) \leq \frac{3}{2}GD\sqrt{T}$$
 
